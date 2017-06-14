@@ -19,11 +19,25 @@
 var watson = require('watson-developer-cloud'),
   util = require('../util');
 var config = require('../config');
+var fs = require('fs');
+var os = require('os');
+var username = "";
+var password = "";
+
+// Windows provides a value for "process.env.USERNAME" 
+// otherwise the env variables from Bluemix are used
+ if (os.platform() == "win32") {
+    username = config.watson.text_to_speech.username,
+    password = config.watson.text_to_speech.password
+ } else {
+    username = process.env.USERNAME || config.watson.text_to_speech.username,
+    password = process.env.PASSWORD || config.watson.text_to_speech.password
+ }
 
   var textToSpeech = watson.text_to_speech({
     version: config.watson.text_to_speech.version,
-    username: process.env.USERNAME || config.watson.text_to_speech.username,
-    password: process.env.PASSWORD || config.watson.text_to_speech.password
+    username: username,
+    password: password 
   });
 
 module.exports.voices = function(req, res, next) {
@@ -41,14 +55,17 @@ module.exports.speak = function(req, res, next) {
     voice: req.body.voice || 'en-US_MichaelVoice',
     accept: 'audio/wav'
   };
+
   var stream = textToSpeech.synthesize(params);
-
+ 
   stream.on('error',next);
-
+  return stream.pipe(res);
+/*
   var userAgent = req.headers['user-agent'];
   if (!/iPhone|iPad|iPod|Safari/i.test(userAgent)) {
     return stream.pipe(res);
   } else {
     return util.fixEncoding(stream, res);
   }
+  */
 };

@@ -67,7 +67,7 @@ $( document ).ready(function() {
       request.onload = function() {
         def.resolve(request.response);
       };
-      request.send('text=' + text + '&voice=' + voice);
+      request.send('text=' + text + '&voice=' + voice);  
       return def;
     },
 
@@ -80,7 +80,8 @@ $( document ).ready(function() {
       return $.ajax({
         url: baseURI + 'translate',
         type: 'POST',
-        data: 'text=' + text.toLowerCase(),
+/*        data: 'text=' + text.toLowerCase(), */
+        data: 'text='  + text,
         contentType: 'application/x-www-form-urlencoded',
         dataType: 'json'
       });

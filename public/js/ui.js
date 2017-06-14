@@ -87,7 +87,11 @@ $( document ).ready(function() {
       }
       if (text && text.length > 0) {
         var request = $.api.speak(text, voice);
-        $.when(request).then(function(sound) {
+        setTimeout(function() {
+        spinner.spin($('.content')[0]);
+      }, 10);
+         $.when(request).then(function(sound) {
+           spinner.stop();           
           player.setSound(sound);
         });
       }
@@ -124,7 +128,8 @@ $( document ).ready(function() {
     result.data('text', text);
     result.data('translation', translation);
 
-    $('h2', result).html(toTitleCase(text));
+/*    $('h2', result).html(toTitleCase(text));  do not manipulate text - may leed to differences in f.e German*/
+    $('h2', result).html(text);
     $('h3', result).html(translation);
     result.animate({ 'bottom': '+=85px' }, 'slow');
     spinner.stop();
