@@ -4,3 +4,4 @@ uploads/*
 transcode
 .env
 .idea/
+config.js

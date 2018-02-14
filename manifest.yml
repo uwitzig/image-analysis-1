@@ -1,0 +1,10 @@
+applications:
+  - name: xxx-imageanalysis
+    path: .
+    buildpack: sdk-for-nodejs
+    command: node app.js
+    memory: 256M
+services:
+  - my-visual-recognition
+  - my-text-to-speech
+  - my-language-translator

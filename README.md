@@ -2,19 +2,11 @@
 
   The Image Analysis app let you recognize items in images and speak the resulting description. It uses Visual Recognition to identify objects in images, Machine Translation to translate the description into another language, and Text to Speech to pronounce the resulting translation.
 
-Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
-
-Lab Instructions: [INSTRUCTIONS](INSTRUCTIONS.md)
-
-Demo: [http://image-analysis.mybluemix.net/](http://image-analysis.mybluemix.net/)
-
-## License
-
-  This sample code is licensed under Apache 2.0. Full license text is available in [COPYING](LICENSE).
-
-## Contributing
-
-  See [CONTRIBUTING](CONTRIBUTING.md).
+- Clone the repository
+- Copy config.sample.js to config.js
+- Add your services credentials to config.js
+- run: npm install
+- run: npm start
 
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
