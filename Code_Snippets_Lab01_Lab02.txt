@@ -47,7 +47,7 @@ https://gateway-a.watsonplatform.net/visual-recognition/api/v3/detect_faces?api_
 }
 
 *********************** LAB 01 Step 15 a) *******************************
-https://stream.watsonplatform.net/text-tospeech/api/v1/synthesize
+https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize
 
 *********************** LAB 01 Step 15 b) *******************************
 ?voice=de-DE_BirgitVoice
